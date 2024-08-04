@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 langchain = "*"
 langchain-openai = "*"
+langchain-ollama = "*"
+langchain-google-genai = "*"
+langchain-community = "*"
+langchainhub = "*"
 
 [dev-packages]
 

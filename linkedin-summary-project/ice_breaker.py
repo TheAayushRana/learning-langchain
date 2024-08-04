@@ -2,6 +2,7 @@ import os
 from langchain_openai import ChatOpenAI
 from langchain.prompts.prompt import PromptTemplate
 from langchain_ollama import ChatOllama
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import StrOutputParser
 
 information = """
@@ -18,6 +19,7 @@ if __name__ == '__main__':
     print("Hello World")
     # print("OPENAI_API_KEY" in os.environ)
     # print(os.environ['OPENAI_API_KEY'])
+    print(os.environ['GOOGLE_API_KEY'])
 
     # information is here parameter
     summary_prompt = """
@@ -30,7 +32,14 @@ if __name__ == '__main__':
     summary_prompt_template = PromptTemplate(input_variables=["information"], template=summary_prompt)
 
     # llm = ChatOpenAI(model='gpt-3.5-turbo', temperature= 0);
-    llm = ChatOllama(model='llama3')
+    # llm = ChatOllama(model='llama3')
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-1.5-pro",
+        temperature=0,
+        max_tokens=None,
+        timeout=None,
+        max_retries=2,
+    )
 
     chain = summary_prompt_template | llm | StrOutputParser()  # chain is a pipeline here | denotes pipe
 

@@ -5,7 +5,6 @@ from langchain_core.output_parsers import StrOutputParser
 from third_parties.linkedin import fetch_linkedin_data
 
 if __name__ == '__main__':
-    print("Hello World")
     summary_prompt = """
         for a given Linkedin information {information} about a person i want you to create:
         1. Short summary
