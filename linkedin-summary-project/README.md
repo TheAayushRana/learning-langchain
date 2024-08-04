@@ -25,3 +25,10 @@ for using ollama model we have to use pipenv install langchain-ollama and use Ch
 
 Output parsers - output of models can be either strings or messages which can be in any format (eg JSON etc) so output parsers are
 responsible for taking output of the model and then tranforming into usable form.
+
+# AGENTS
+
+langchain tools- they are interfaces that help our langchain agent, llm or chain to interact with external world like
+search online, connect with database. It has name, description- what does this tool does and a function which will execute.
+
+For searching on the web we can use tavily api
