@@ -4,7 +4,7 @@ Packages:
 
 How does it works:
 
-1. We load the documents 
-2. Spilt those into chunks
-3. Convert chunks into embedding forms
+1. We load the documents (Document Loaders)
+2. Spilt those into chunks (Text Splitters)
+3. Convert chunks into embedding forms (Embeddings)
 4. Store them into vector database
