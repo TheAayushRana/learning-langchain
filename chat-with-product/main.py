@@ -8,7 +8,7 @@ def get_text_from_image(image_url):
     text = response['ParsedResults'][0]['ParsedText']
     return text
 
-if __name__ == '__main__':
+def chat_with_product(image_url):
     llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
 
     template = """
@@ -26,14 +26,19 @@ if __name__ == '__main__':
 
     chain = prompt | llm | StrOutputParser()
 
-    product_info = get_text_from_image("https://i.imghippo.com/files/ngMbQ1724048156.png")
+    product_info = get_text_from_image(image_url)
 
-    # result = chain.invoke({"product_info": product_info, "question": "What all ingredients does this product contain?"})
+    result = chain.invoke({"product_info": product_info, "question": "Show product information in nice format"})
 
-    while True:
-        user_input = input("Ask a question about the product (type 'exit' to quit): ")
-        if user_input.lower() == 'exit':
-            print("Exiting chat...")
-            break
-        result = chain.invoke({"product_info": product_info, "question": user_input})
-        print(result)
+    return result
+
+    # while True:
+    #     user_input = input("Ask a question about the product (type 'exit' to quit): ")
+    #     if user_input.lower() == 'exit':
+    #         print("Exiting chat...")
+    #         break
+    #     result = chain.invoke({"product_info": product_info, "question": user_input})
+    #     return result
+
+if __name__ == '__main__':
+    chat_with_product()

@@ -10,8 +10,10 @@ def read_image(image):
     headers={
         "apikey": os.getenv("OCR_SPACE_API_KEY")
     },
+    files={
+        "file": (image.name, image.getvalue(), image.type),
+    },
     data={
-        "url": image,
         "language": "eng",
         "detectOrientation": "true",
     }
