@@ -1,2 +1,8 @@
 streamlit
 streamlit_chat
+requests
+os
+dotenv
+langchain_google_genai
+langchain
+langchain_core
